@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Fatorial</title>
+</head>
+<body>
+  <h1>Calculadora de Fatorial</h1>
+
+  <label for="numero">Digite um número:</label>
+  <input type="number" id="numero" placeholder="Digite um número">
+  <button onclick="calcularFatorial()">Calcular Fatorial</button>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularFatorial() {
+      const numero = parseInt(document.getElementById("numero").value);
+      const resultadoElement = document.getElementById("resultado");
+
+      if (isNaN(numero)) {
+        resultadoElement.textContent = "Por favor, digite um número válido.";
+      } else {
+        resultadoElement.textContent = `O fatorial de ${numero} é ${calcularFatorialRecursivo(numero)}`;
+      }
+    }
+
+    function calcularFatorialRecursivo(numero) {
+      if (numero === 0) {
+        return 1;
+      } else {
+        return numero * calcularFatorialRecursivo(numero - 1);
+      }
+    }
+  </script>
+</body>
+</html>
